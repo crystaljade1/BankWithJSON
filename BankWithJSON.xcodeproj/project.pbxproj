@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		82DD739B1EDD290C00D39188 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD739A1EDD290C00D39188 /* Person.swift */; };
 		82F60DBC1EB91093008D18BB /* BankWithJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F60DB21EB91093008D18BB /* BankWithJSON.framework */; };
-		82F60DC11EB91093008D18BB /* BankWithJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F60DC01EB91093008D18BB /* BankWithJSONTests.swift */; };
 		82F60DC31EB91093008D18BB /* BankWithJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 82F60DB51EB91093008D18BB /* BankWithJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82F60DCD1EB91245008D18BB /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F60DCC1EB91245008D18BB /* JSON.swift */; };
 		82F60DCF1EB9126D008D18BB /* JSONTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F60DCE1EB9126D008D18BB /* JSONTest.swift */; };
-		82F60DD11EB92115008D18BB /* BankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F60DD01EB92115008D18BB /* BankTests.swift */; };
 		82F60DD31EB92121008D18BB /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F60DD21EB92121008D18BB /* Bank.swift */; };
 		82F60DD51EB97A74008D18BB /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F60DD41EB97A74008D18BB /* Account.swift */; };
 /* End PBXBuildFile section */
@@ -34,11 +32,9 @@
 		82F60DB51EB91093008D18BB /* BankWithJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankWithJSON.h; sourceTree = "<group>"; };
 		82F60DB61EB91093008D18BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82F60DBB1EB91093008D18BB /* BankWithJSONTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankWithJSONTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		82F60DC01EB91093008D18BB /* BankWithJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankWithJSONTests.swift; sourceTree = "<group>"; };
 		82F60DC21EB91093008D18BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82F60DCC1EB91245008D18BB /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		82F60DCE1EB9126D008D18BB /* JSONTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTest.swift; sourceTree = "<group>"; };
-		82F60DD01EB92115008D18BB /* BankTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankTests.swift; sourceTree = "<group>"; };
 		82F60DD21EB92121008D18BB /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		82F60DD41EB97A74008D18BB /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,9 +92,7 @@
 		82F60DBF1EB91093008D18BB /* BankWithJSONTests */ = {
 			isa = PBXGroup;
 			children = (
-				82F60DC01EB91093008D18BB /* BankWithJSONTests.swift */,
 				82F60DCE1EB9126D008D18BB /* JSONTest.swift */,
-				82F60DD01EB92115008D18BB /* BankTests.swift */,
 				82F60DC21EB91093008D18BB /* Info.plist */,
 			);
 			path = BankWithJSONTests;
@@ -226,8 +220,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82F60DD11EB92115008D18BB /* BankTests.swift in Sources */,
-				82F60DC11EB91093008D18BB /* BankWithJSONTests.swift in Sources */,
 				82F60DCF1EB9126D008D18BB /* JSONTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

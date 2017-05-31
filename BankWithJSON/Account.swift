@@ -14,20 +14,25 @@ public class Account {
         case savings
     }
     
-    let id: UUID
-    var balance: Double
+    typealias ID = UUID
+    let id: ID
+    
+    typealias AccountBalance = Double
+    var balance: AccountBalance
     
     init(id: UUID, balance: Double) {
         self.id = id
         self.balance = balance
     }
     
-    var transactions: [Transaction: Double] = [:]
+    public typealias Transactions = [Transaction]
+    public var transactions: Transactions = []
     
     public struct Transaction: Hashable {
         
         public var hashValue: Int {
             let transaction: Transaction
+            transaction = Transaction(amount: amount, userDescription: userDescription, vendor: vendor, datePosted: datePosted)
             return transaction.hashValue
         }
         
@@ -39,7 +44,7 @@ public class Account {
                 lhs.userDescription == rhs.userDescription)
         }
         
-        enum TransactionType {
+        public enum TransactionType {
             case debit(amount: Double)
             case credit(amount: Double)
         }
@@ -89,6 +94,7 @@ extension Account: Hashable {
     }
 }
 
+
 extension Account {
     convenience init?(jsonObject: [String: Any]) {
         return nil
@@ -103,14 +109,15 @@ extension Account.Transaction {
     init?(jsonObject: [String: Any]) {
         guard let amount = jsonObject[Account.Transaction.dateCreatedKey] as? Double,
             let dateCreatedAsDouble = jsonObject[Account.Transaction.dateCreatedKey] as? Double,
-            let vendor = jsonObject[Account.Transaction.vendorKey] as? String
+            let vendor = jsonObject[Account.Transaction.vendorKey] as? String,
+            let datePostedAsDouble = jsonObject[Account.Transaction.datePostedKey] as? Double
             else {
                 return nil
         }
         
         let dateCreated = Date(timeIntervalSince1970: dateCreatedAsDouble)
         let userDescription = jsonObject[Account.Transaction.datePostedKey] as? String
-        let datePosted = datePostedString.flatMap(Account.Transaction.dateFormatted.date(from:))
+        let datePosted = Date(timeIntervalSince1970: datePostedAsDouble)
         self.init(amount: amount, userDescription: userDescription, vendor: vendor, datePosted: datePosted, dateCreated: dateCreated)
     }
     
@@ -118,7 +125,7 @@ extension Account.Transaction {
         var back: [String: Any] = [
             Account.Transaction.amountKey : amount,
             Account.Transaction.dateCreatedKey: dateCreated.timeIntervalSince1970,
-            Account.Transaction.datePostedKey: datePosted.map(Account.Transaction.dateFormatter.string(from:)) as Any,
+            Account.Transaction.datePostedKey: datePosted?.timeIntervalSince1970 as Any,
             Account.Transaction.vendorKey: vendor,
             ]
         
@@ -127,7 +134,6 @@ extension Account.Transaction {
         }
         
         return back
-
     }
     
     internal static var amountKey: String = "amount"

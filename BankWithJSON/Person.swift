@@ -24,8 +24,7 @@ public class Person: Hashable {
     }
     
     public var hashValue: Int {
-        let person = Person(givenName: givenName, familyName: familyName)
-        return person.hashValue
+        return fullName.hashValue
     }
     
     public static func == (_ lhs: Person, _ rhs: Person) -> Bool {
@@ -34,11 +33,21 @@ public class Person: Hashable {
     
 }
 
-class Employee: Person {
+public class Employee: Person {
     
+    func addNewEmployee(employee: Employee, employees: Bank.Employees) -> Bool {
+        var employees = employees
+        
+        if employees.contains(employee) {
+            return false
+        } else {
+            employees.insert(employee)
+            return true
+        }
+    }
 }
 
-class Customer: Person {
+public class Customer: Person {
     var email: String
     var accounts: [Account]
     
@@ -48,5 +57,15 @@ class Customer: Person {
         super.init(givenName: givenName, familyName: familyName)
         self.givenName = givenName
         self.familyName = familyName
+    }
+    
+    func addNewCustomer(customer: Customer, customers: [Customer]) -> Bool {
+        var customers = customers
+        
+        guard customer.email == customer.email else {
+            return false
+        }
+        customers.append(customer)
+        return true
     }
 }
